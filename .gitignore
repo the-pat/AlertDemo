@@ -240,3 +240,7 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+
+# Config files
+**/*.[Dd]ebug.[Cc]onfig
+**/*.[Rr]elease.[Cc]onfig

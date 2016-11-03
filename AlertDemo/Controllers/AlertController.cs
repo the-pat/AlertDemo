@@ -12,28 +12,35 @@ namespace AlertDemo.Controllers
     public class AlertController : Controller
     {
         // GET: Alert
-        public ActionResult Index()
+        public ActionResult SMS()
         {
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(MessageModel message)
+        public ActionResult SMS(SmsModel message)
         {
             if (ModelState.IsValid)
             {
-                var smsService = new Services.SmsService();
-                smsService.SendMessage(
-                    WebConfigurationManager.AppSettings["TwilioSmsNumber"],
-                    message.To,
-                    message.Body
-                );
 
-                return View("Index");
+
+                var smsService = new Services.SmsService();
+                var sentMessage = smsService.SendMessage(
+                        WebConfigurationManager.AppSettings["TwilioSmsNumber"],
+                        message.To,
+                        message.Body
+                    );
+                
+                return View();
             }
 
             return View(message);
+        }
+
+        public ActionResult Email()
+        {
+            return View();
         }
     }
 }

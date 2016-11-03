@@ -6,7 +6,7 @@ using System.Web;
 
 namespace AlertDemo.Models
 {
-    public class MessageModel
+    public class SmsModel
     {
         [Display(Name = "Message Body")]
         [Required(ErrorMessage = "Please enter the message body")]
